@@ -1,92 +1,49 @@
-/* Custom styles for colorful and perfect navbar */
-.navbar {
-    transition: background 0.3s, box-shadow 0.3s;
-    background: linear-gradient(90deg, #007bff 0%, #00c6ff 100%);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+body {
+    font-family: 'Inter', sans-serif;
+    transition: background 0.3s ease;
 }
-.navbar-shrink {
-    background: linear-gradient(90deg, #0056b3 0%, #007bff 100%);
-    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
-}
-.navbar-brand span {
-    color: #fff;
-    font-weight: bold;
-    letter-spacing: 1px;
-}
-.nav-link, .dropdown-item {
-    color: #fff !important;
-    transition: color 0.2s;
-}
-.nav-link.active, .dropdown-item.active {
-    color: #ffd700 !important;
-    font-weight: bold;
-}
-.dropdown-menu {
-    background: linear-gradient(135deg, #007bff 60%, #00c6ff 100%);
-    border-radius: 12px;
-    border: none;
-}
-.dropdown-item:hover {
-    background: #ffd700;
-    color: #007bff !important;
-}
-.btn-outline-light {
-    border-color: #ffd700;
-    color: #ffd700;
-}
-.btn-outline-light:hover {
-    background: #ffd700;
-    color: #007bff;
-}
-.badge.bg-danger {
-    background: linear-gradient(135deg, #ff4b2b 0%, #ff416c 100%);
-    color: #fff;
-}
-.offcanvas {
-    background: linear-gradient(135deg, #f8f9fa 60%, #e0e7ff 100%);
-}
-.list-group-item {
-    border-radius: 8px;
-    margin-bottom: 6px;
-    font-size: 1.1rem;
-    transition: background 0.2s, color 0.2s;
-}
-.list-group-item:hover {
-    background: #007bff;
-    color: #fff;
-}
+
+.transition-all { transition: all 0.3s ease; }
+
+/* Dark Mode Stili */
 body.dark-mode {
-    background: #222 !important;
-    color: #fff !important;
+    background-color: #0f172a;
+    color: #f8fafc;
 }
-body.dark-mode .navbar {
-    background: linear-gradient(90deg, #222 0%, #444 100%) !important;
+
+.dark-mode .navbar, .dark-mode .offcanvas {
+    background-color: #1e293b !important;
+    border-bottom: 1px solid #334155 !important;
 }
-body.dark-mode .dropdown-menu {
-    background: linear-gradient(135deg, #222 60%, #444 100%) !important;
-    border: none !important;
+
+.dark-mode .nav-link, .dark-mode .offcanvas-title { color: #f8fafc !important; }
+
+.dark-mode .list-group-item {
+    background-color: transparent;
+    color: #cbd5e1;
 }
-body.dark-mode .dropdown-item {
-    color: #fff !important;
+
+.dark-mode .list-group-item:hover { background-color: #334155; }
+
+/* Navbar effektlari */
+.navbar-brand:hover { transform: scale(1.05); }
+.nav-link:hover { color: #0d6efd !important; }
+
+/* Hero banner */
+header.bg-primary {
+    background: linear-gradient(135deg, #0d6efd 0%, #6610f2 100%);
 }
-body.dark-mode .dropdown-item:hover {
-    background: #ffd700 !important;
-    color: #007bff !important;
+header h1, header p {
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
-body.dark-mode .list-group-item {
-    background: #333 !important;
-    color: #fff !important;
+
+/* Footer styles */
+footer a:hover { text-decoration: underline; }
+footer .bg-secondary { background-color: #343a40 !important; }
+
+/* Scroll to top */
+#scrollTopBtn {
+    z-index: 1000;
+    transition: opacity 0.3s;
 }
-body.dark-mode .btn-outline-light {
-    color: #ffd700 !important;
-    border-color: #ffd700 !important;
-}
-body.dark-mode .badge.bg-danger {
-    background: #ff416c !important;
-}
-body.dark-mode .nav-link {
-    color: #fff !important;
-}
-body.dark-mode .offcanvas {
-    background: #333 !important;
-}
+#scrollTopBtn:hover { opacity: 0.8; }

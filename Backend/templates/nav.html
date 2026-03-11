@@ -1,123 +1,78 @@
-{#
-  Professional responsive navbar using Bootstrap 5.
-  Included by base.html; head links added there.
-#}
-
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm fixed-top">
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top transition-all">
     <div class="container">
-        <a class="navbar-brand" href="{% url 'home' %}">
-            <!-- replace with logo img if desired -->
-            <i class="bi bi-shop"></i> <span class="ms-1">OnlineShop</span>
+        <a class="navbar-brand fw-bold text-primary d-flex align-items-center" href="/">
+            <i class="bi bi-cart4 fs-3 me-2 text-warning"></i> 
+            <span>Online<span class="text-dark">Shop</span></span>
         </a>
-        <!-- Цветная и современная навигация -->
-        <!-- offcanvas trigger for categories on small screens -->
-        <button class="btn btn-outline-light d-lg-none me-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#categoriesOffcanvas" aria-controls="categoriesOffcanvas">
-            <i class="bi bi-grid-3x3-gap-fill"></i>
-        </button>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar"
-                aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#categoriesOffcanvas">
+            <i class="bi bi-list-nested fs-1"></i>
         </button>
 
-        <div class="collapse navbar-collapse" id="mainNavbar">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto align-items-center">
+                <li class="nav-item"><a class="nav-link px-3 fw-semibold" href="/">Home</a></li>
                 <li class="nav-item">
-                    <a class="nav-link{% if request.resolver_match.url_name == 'home' %} active{% endif %}" href="{% url 'home' %}">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link{% if request.resolver_match.url_name == 'about' %} active{% endif %}" href="{% url 'about' %}">About</a>
-                </li>
-                <li class="nav-item dropdown d-none d-lg-block">
-                    <a class="nav-link dropdown-toggle" href="#" id="categoriesDropdown" role="button"
-                       data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link px-3 fw-semibold pointer" data-bs-toggle="offcanvas" data-bs-target="#categoriesOffcanvas">
                         Categories
                     </a>
-                    <ul class="dropdown-menu" aria-labelledby="categoriesDropdown">
-                        <li><a class="dropdown-item" href="#">Electronics</a></li>
-                        <li><a class="dropdown-item" href="#">Clothing</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="#">All Products</a></li>
-                    </ul>
                 </li>
-                <!-- Добавьте больше цветных пунктов меню при необходимости -->
+                <li class="nav-item ms-lg-3">
+                    <button id="darkModeToggle" class="btn btn-light rounded-circle border">
+                        <i class="bi bi-moon-stars-fill"></i>
+                    </button>
+                </li>
+                <li class="nav-item ms-lg-3 d-flex gap-2">
+                    <a href="#" class="btn btn-outline-primary rounded-pill px-4">Login</a>
+                    <a href="#" class="btn btn-primary rounded-pill px-4 shadow-sm">Join</a>
+                </li>
             </ul>
-
-            <form class="d-flex me-3" role="search">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-light" type="submit">Search</button>
-            </form>
-
-            <div class="d-flex align-items-center">
-                <a href="#" class="nav-link p-0 position-relative">
-                    <i class="bi bi-cart3 fs-4 text-white"></i>
-                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 0.6rem;">
-                        3
-                    </span>
-                </a>
-
-                <div class="nav-item dropdown">
-                    <a class="nav-link p-0 dropdown-toggle hide-arrow" href="#" data-bs-toggle="dropdown">
-                        <i class="bi bi-person-circle fs-4 text-white"></i>
-                    </a>
-                    <ul class="dropdown-menu dropdown-menu-end border-0 shadow">
-                        <li><a class="dropdown-item" href="#"><i class="bi bi-box-arrow-in-right me-2"></i>Login</a></li>
-                        <li><a class="dropdown-item" href="#"><i class="bi bi-person-plus me-2"></i>Register</a></li>
-                    </ul>
-                </div>
-
-                <button id="darkModeToggle" class="btn btn-link text-white p-0">
-                    <i class="bi bi-moon-stars-fill fs-5"></i>
-                </button>
-            </div>
         </div>
     </div>
 </nav>
 
 <div class="offcanvas offcanvas-start" tabindex="-1" id="categoriesOffcanvas" aria-labelledby="categoriesLabel">
-    <div class="offcanvas-header border-bottom">
+    <div class="offcanvas-header border-bottom bg-light">
         <h5 class="offcanvas-title fw-bold" id="categoriesLabel">Product Categories</h5>
         <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
     </div>
-    <div class="offcanvas-body">
+    <div class="offcanvas-body p-0">
         <div class="list-group list-group-flush">
-            <a href="#" class="list-group-item list-group-item-action border-0 py-3"><i class="bi bi-phone me-3 text-primary"></i>Electronics</a>
-            <a href="#" class="list-group-item list-group-item-action border-0 py-3"><i class="bi bi-tag me-3 text-success"></i>Clothing</a>
-            <a href="#" class="list-group-item list-group-item-action border-0 py-3"><i class="bi bi-house me-3 text-warning"></i>Home Decor</a>
-            <a href="#" class="list-group-item list-group-item-action border-0 py-3 fw-bold text-primary"><i class="bi bi-arrow-right-circle me-3"></i>View All Products</a>
+            <a href="#" class="list-group-item list-group-item-action py-3 border-0">
+                <i class="bi bi-cpu me-3 text-primary fs-5"></i>Electronics
+            </a>
+            <a href="#" class="list-group-item list-group-item-action py-3 border-0">
+                <i class="bi bi-scissors me-3 text-success fs-5"></i>Clothing
+            </a>
+            <a href="#" class="list-group-item list-group-item-action py-3 border-0">
+                <i class="bi bi-lamp me-3 text-warning fs-5"></i>Home Decor
+            </a>
+            <div class="dropdown-divider m-0"></div>
+            <a href="#" class="list-group-item list-group-item-action py-3 border-0 fw-bold text-primary">
+                <i class="bi bi-arrow-right-circle me-3"></i>View All Products
+            </a>
         </div>
     </div>
 </div>
-<!-- Цветные категории, можно добавить больше -->
 
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Dark Mode funksiyasi
-        var toggle = document.getElementById('darkModeToggle');
-        if (toggle) {
-            var updateIcon = function(isDark) {
-                toggle.innerHTML = isDark ? '<i class="bi bi-sun-fill fs-5 text-warning"></i>' : '<i class="bi bi-moon-stars-fill fs-5"></i>';
-            };
+    // Dark Mode logikasi
+    const toggle = document.getElementById('darkModeToggle');
+    const body = document.body;
 
-            toggle.addEventListener('click', function() {
-                var isDark = document.body.classList.toggle('dark-mode');
-                localStorage.setItem('darkMode', isDark);
-                updateIcon(isDark);
-            });
+    if (localStorage.getItem('darkMode') === 'enabled') {
+        body.classList.add('dark-mode');
+        toggle.innerHTML = '<i class="bi bi-sun-fill text-warning"></i>';
+    }
 
-            if (localStorage.getItem('darkMode') === 'true') {
-                document.body.classList.add('dark-mode');
-                updateIcon(true);
-            }
+    toggle.addEventListener('click', () => {
+        body.classList.toggle('dark-mode');
+        if (body.classList.contains('dark-mode')) {
+            localStorage.setItem('darkMode', 'enabled');
+            toggle.innerHTML = '<i class="bi bi-sun-fill text-warning"></i>';
+        } else {
+            localStorage.setItem('darkMode', 'disabled');
+            toggle.innerHTML = '<i class="bi bi-moon-stars-fill"></i>';
         }
-
-        // Scroll bo'lganda navbar hajmini o'zgartirish
-        window.addEventListener('scroll', function() {
-            var nav = document.querySelector('.navbar');
-            if (window.scrollY > 50) {
-                nav.classList.add('navbar-shrink');
-            } else {
-                nav.classList.remove('navbar-shrink');
-            }
-        });
     });
 </script>

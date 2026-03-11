@@ -3,23 +3,88 @@
 {% load static %}
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Online Shop</title>
-    <!-- Bootstrap 5 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gtv3EpOWTkDccsr8zMzhdrzvyiwIOw8z+zN+wren1+hAsX2D2Bp3RDGQvqnwxEX8" crossorigin="anonymous">
-    <!-- Bootstrap Icons -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
-    <!-- Custom stylesheet -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5">
+    <meta name="description" content="Modern online shop built with Django and Bootstrap. Discover a wide range of products with an intuitive user experience.">
+    <title>{% block title %}Online Shop{% endblock title %}</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Bootstrap and Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- Custom styles -->
     <link rel="stylesheet" href="{% static 'style.css' %}">
+    {% block extra_head %}{% endblock extra_head %}
 </head>
 <body>
-   {% include 'nav.html' %}
-   <div style="margin-top: 80px;">
-      {% block content %}
-      {% endblock content %}
-   </div>
+    {% include 'nav.html' %}
 
-    <!-- Bootstrap JS bundle -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Qwfxt9P8YE3d2qld2vXWx3poSxl2dWgDNL5p8XHJ9bFTyQZ+TUwIreXmLNv+p5aL" crossorigin="anonymous"></script>
+    <!-- Hero / Banner placeholder -->
+    <header class="bg-primary text-white py-5 mb-4">
+        <div class="container text-center">
+            <h1 class="display-5 fw-bold">Welcome to the Online Shop</h1>
+            <p class="lead">Browse our collection and enjoy a seamless shopping experience.</p>
+            {% block hero %}{% endblock hero %}
+        </div>
+    </header>
+
+    <main class="container py-4" id="main-content">
+        {% block content %}{% endblock content %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-light text-center text-lg-start mt-auto border-top">
+        <div class="container p-4">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5 class="text-uppercase fw-bold">About</h5>
+                    <p>A modern online store built with Django, focusing on excellent UI/UX and responsive design.</p>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5 class="text-uppercase fw-bold">Quick Links</h5>
+                    <ul class="list-unstyled mb-0">
+                        <li><a href="#" class="text-dark text-decoration-none">Home</a></li>
+                        <li><a href="#" class="text-dark text-decoration-none">Shop</a></li>
+                        <li><a href="#" class="text-dark text-decoration-none">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5 class="text-uppercase fw-bold">Support</h5>
+                    <ul class="list-unstyled mb-0">
+                        <li><a href="#" class="text-dark text-decoration-none">Help Center</a></li>
+                        <li><a href="#" class="text-dark text-decoration-none">Shipping</a></li>
+                        <li><a href="#" class="text-dark text-decoration-none">Returns</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5 class="text-uppercase fw-bold">Follow Us</h5>
+                    <a href="#" class="text-dark me-3"><i class="bi bi-facebook fs-4"></i></a>
+                    <a href="#" class="text-dark me-3"><i class="bi bi-twitter fs-4"></i></a>
+                    <a href="#" class="text-dark"><i class="bi bi-instagram fs-4"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="text-center p-3 bg-secondary text-white">
+            © {% now "Y" %} Online Shop. All rights reserved.
+        </div>
+    </footer>
+
+    <!-- Scroll to top button -->
+    <button id="scrollTopBtn" class="btn btn-primary rounded-circle position-fixed" style="bottom:20px;right:20px;display:none;">
+        <i class="bi bi-arrow-up-short fs-3"></i>
+    </button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Scroll to top logic
+        const scrollBtn = document.getElementById('scrollTopBtn');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) scrollBtn.style.display = 'block';
+            else scrollBtn.style.display = 'none';
+        });
+        scrollBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+    {% block extra_js %}{% endblock extra_js %}
 </body>
 </html>
