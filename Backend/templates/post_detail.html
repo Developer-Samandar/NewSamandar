@@ -3,7 +3,7 @@
 {% block title %}{{ post.title }}{% endblock title %}
 
 {% block content %}
-<div class="container mt-5">
+<div class="container py-5">
     <div class="row justify-content-center">
         <div class="col-lg-8">
             <div class="card shadow-lg border-0 rounded-3">
@@ -12,6 +12,7 @@
                 </div>
                 <div class="card-body p-4">
                     <p class="lead">{{ post.content }}</p>
+                    <small class="text-muted">Created: {{ post.created_at|date:"M d, Y H:i" }}{% if post.updated_at != post.created_at %} | Updated: {{ post.updated_at|date:"M d, Y H:i" }}{% endif %}</small>
                 </div>
                 <div class="card-footer bg-light rounded-bottom-3">
                     <div class="d-flex justify-content-between">

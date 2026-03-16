@@ -1,10 +1,10 @@
 from django import forms
-from .models import Posts
+from .models import Post
 
 
-class PostsForm(forms.ModelForm):
+class PostForm(forms.ModelForm):
     class Meta:
-        model = Posts
+        model = Post
         fields = "__all__"
         widgets = {
             'title': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter title'}),

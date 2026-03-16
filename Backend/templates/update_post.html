@@ -1,14 +1,14 @@
 {% extends "base.html" %}
 
-{% block title %}Edit Post{% endblock title %}
+{% block title %}Update Post{% endblock title %}
 
 {% block content %}
 <div class="container py-5">
   <div class="row justify-content-center">
     <div class="col-lg-7 col-md-9">
       <div class="card shadow border-0">
-        <div class="card-header bg-warning text-dark text-center">
-          <h3 class="mb-0">Edit Post: {{ post.title }}</h3>
+        <div class="card-header bg-primary text-white text-center">
+          <h3 class="mb-0">Update Post</h3>
         </div>
         <div class="card-body">
           <form method="post" novalidate autocomplete="off">
@@ -33,12 +33,12 @@
               {% endif %}
             </div>
             <div class="d-grid gap-2">
-              <button type="submit" class="btn btn-primary btn-lg">Update Post</button>
+              <button type="submit" class="btn btn-success btn-lg">Save Changes</button>
             </div>
           </form>
         </div>
         <div class="card-footer text-center bg-light">
-          <a href="{% url 'post_detail' post.pk %}" class="btn btn-link">&larr; Back to Post</a>
+          <a href="{% url 'posts' %}" class="btn btn-link">&larr; Back to Posts</a>
         </div>
       </div>
     </div>
