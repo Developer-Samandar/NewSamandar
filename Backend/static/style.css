@@ -25,6 +25,17 @@ body.dark-mode {
 
 .dark-mode .list-group-item:hover { background-color: #334155; }
 
+/* Dark mode toggle button */
+.dark-mode #darkModeToggle {
+    background-color: #334155;
+    border-color: #475569;
+    color: #f8fafc;
+}
+
+.dark-mode #darkModeToggle:hover {
+    background-color: #475569;
+}
+
 /* Navbar effektlari */
 .navbar-brand:hover { transform: scale(1.05); }
 .nav-link:hover { color: #0d6efd !important; }
@@ -47,3 +58,17 @@ footer .bg-secondary { background-color: #343a40 !important; }
     transition: opacity 0.3s;
 }
 #scrollTopBtn:hover { opacity: 0.8; }
+
+/* Posts page cards */
+.card-title { font-size: 1.25rem; font-weight: 600; }
+.card-text { color: #555; }
+.card h5 { min-height: 3rem; }
+
+/* Truncate utility when content is long */
+.text-truncate { overflow: hidden; }
+
+/* Create post form */
+.card-header h4 { margin: 0; }
+.form-control { border-radius: 0.25rem; }
+.btn-block { display: block; }
+

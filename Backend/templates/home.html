@@ -1,10 +1,269 @@
-{% extends  "base.html"  %}
+{% extends "base.html" %}
 
+{% block title %}Home - Online Shop{% endblock title %}
+
+{% block hero %}
+<div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" class="d-block w-100" alt="Fashion Magazine" style="height: 60vh; object-fit: cover;">
+            <div class="carousel-caption d-none d-md-block">
+                <h5 class="display-4 fw-bold text-shadow">Elegant Fashion</h5>
+                <p class="lead text-shadow">Discover the latest trends in style and sophistication.</p>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" class="d-block w-100" alt="Tech Gadgets" style="height: 60vh; object-fit: cover;">
+            <div class="carousel-caption d-none d-md-block">
+                <h5 class="display-4 fw-bold text-shadow">Cutting-Edge Tech</h5>
+                <p class="lead text-shadow">Explore innovative gadgets and electronics.</p>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" class="d-block w-100" alt="Home Decor" style="height: 60vh; object-fit: cover;">
+            <div class="carousel-caption d-none d-md-block">
+                <h5 class="display-4 fw-bold text-shadow">Luxurious Living</h5>
+                <p class="lead text-shadow">Transform your space with premium home essentials.</p>
+            </div>
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+<div class="text-center mt-4">
+    <a href="{% url 'posts' %}" class="btn btn-light btn-lg shadow-lg">
+        <i class="bi bi-shop me-2"></i>Explore Our Magazine
+    </a>
+</div>
+{% endblock hero %}
 
 {% block content %}
+<!-- Welcome Section -->
+<section class="mb-5">
+    <div class="row align-items-center">
+        <div class="col-lg-6">
+            <h2 class="display-6 fw-bold text-primary mb-3">Discover Amazing Products</h2>
+            <p class="lead text-muted mb-4">{{ text }}</p>
+            <div class="d-flex gap-3">
+                <a href="#categories" class="btn btn-outline-primary">Explore Categories</a>
+                <a href="{% url 'create_posts' %}" class="btn btn-primary">Create Post</a>
+            </div>
+        </div>
+        <div class="col-lg-6 text-center">
+            <img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Online Magazine" class="img-fluid rounded shadow-lg magazine-glow">
+        </div>
+    </div>
+</section>
 
-<h1>Welcome to our Online Shop!</h1>
-<p>Explore our wide range of products and enjoy shopping with us.</p>
-<hr>
-{{ text}}
+<!-- Categories Section -->
+<section id="categories" class="mb-5">
+    <h3 class="text-center mb-4 fw-bold">Shop by Category</h3>
+    <div class="row g-4">
+        <div class="col-md-4">
+            <div class="card h-100 border-0 shadow-lg hover-lift category-card" style="background-image: url('https://images.unsplash.com/photo-1498049794561-7780e7231661?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'); background-size: cover; background-position: center;">
+                <div class="card-body text-center p-4 text-white overlay">
+                    <i class="bi bi-laptop fs-1 mb-3"></i>
+                    <h5 class="card-title fw-bold">Electronics</h5>
+                    <p class="card-text">Latest gadgets and tech accessories</p>
+                    <a href="#" class="btn btn-outline-light">Browse</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100 border-0 shadow-lg hover-lift category-card" style="background-image: url('https://images.unsplash.com/photo-1445205170230-053b83016050?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'); background-size: cover; background-position: center;">
+                <div class="card-body text-center p-4 text-white overlay">
+                    <i class="bi bi-bag fs-1 mb-3"></i>
+                    <h5 class="card-title fw-bold">Fashion</h5>
+                    <p class="card-text">Trendy clothing and accessories</p>
+                    <a href="#" class="btn btn-outline-light">Browse</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100 border-0 shadow-lg hover-lift category-card" style="background-image: url('https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'); background-size: cover; background-position: center;">
+                <div class="card-body text-center p-4 text-white overlay">
+                    <i class="bi bi-house-heart fs-1 mb-3"></i>
+                    <h5 class="card-title fw-bold">Home & Garden</h5>
+                    <p class="card-text">Everything for your home</p>
+                    <a href="#" class="btn btn-outline-light">Browse</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Featured Posts Section -->
+<section class="mb-5">
+    <h3 class="text-center mb-4 fw-bold">Latest Posts</h3>
+    <div class="row g-4">
+        {% for post in latest_posts|slice:":3" %}
+        <div class="col-md-4">
+            <div class="card h-100 border-0 shadow-sm">
+                <div class="card-body">
+                    <h6 class="card-title fw-bold">{{ post.title }}</h6>
+                    <p class="card-text text-muted small">{{ post.content|truncatechars:100 }}</p>
+                    <a href="{% url 'post_detail' post.pk %}" class="btn btn-sm btn-outline-primary">Read More</a>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <div class="col-12 text-center">
+            <p class="text-muted">No posts available yet.</p>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="text-center mt-4">
+        <a href="{% url 'posts' %}" class="btn btn-primary">View All Posts</a>
+    </div>
+</section>
+
+<!-- Testimonials Section -->
+<section class="mb-5 bg-light py-5 rounded">
+    <div class="container">
+        <h3 class="text-center mb-4 fw-bold">What Our Customers Say</h3>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card border-0 shadow-lg h-100 testimonial-card">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" class="card-img-top rounded-circle mx-auto mt-3" alt="John Doe" style="width: 80px; height: 80px; object-fit: cover;">
+                    <div class="card-body text-center">
+                        <div class="mb-3">
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <i class="bi bi-star-fill text-warning"></i>
+                        </div>
+                        <p class="card-text">"Amazing shopping experience! Fast delivery and great quality."</p>
+                        <h6 class="card-title text-primary fw-bold">- John Doe</h6>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-lg h-100 testimonial-card">
+                    <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" class="card-img-top rounded-circle mx-auto mt-3" alt="Jane Smith" style="width: 80px; height: 80px; object-fit: cover;">
+                    <div class="card-body text-center">
+                        <div class="mb-3">
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <i class="bi bi-star-fill text-warning"></i>
+                        </div>
+                        <p class="card-text">"Love the variety of products. Will definitely shop again!"</p>
+                        <h6 class="card-title text-primary fw-bold">- Jane Smith</h6>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-lg h-100 testimonial-card">
+                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" class="card-img-top rounded-circle mx-auto mt-3" alt="Mike Johnson" style="width: 80px; height: 80px; object-fit: cover;">
+                    <div class="card-body text-center">
+                        <div class="mb-3">
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <i class="bi bi-star-fill text-warning"></i>
+                        </div>
+                        <p class="card-text">"Excellent customer service and user-friendly website."</p>
+                        <h6 class="card-title text-primary fw-bold">- Mike Johnson</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Stats Section -->
+<section class="mb-5 py-5 bg-gradient-primary text-white">
+    <div class="container">
+        <div class="row text-center g-4">
+            <div class="col-md-3">
+                <h2 class="display-4 fw-bold">1000+</h2>
+                <p class="lead">Happy Customers</p>
+            </div>
+            <div class="col-md-3">
+                <h2 class="display-4 fw-bold">500+</h2>
+                <p class="lead">Products</p>
+            </div>
+            <div class="col-md-3">
+                <h2 class="display-4 fw-bold">50+</h2>
+                <p class="lead">Categories</p>
+            </div>
+            <div class="col-md-3">
+                <h2 class="display-4 fw-bold">24/7</h2>
+                <p class="lead">Support</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Newsletter Signup -->
+<section class="mb-5">
+    <div class="card border-0 shadow-lg bg-gradient-secondary text-white">
+        <div class="card-body text-center py-5">
+            <h4 class="card-title mb-3 fw-bold">Stay Updated</h4>
+            <p class="card-text mb-4 lead">Subscribe to our newsletter for the latest updates and exclusive offers.</p>
+            <form class="d-flex justify-content-center gap-2 flex-wrap">
+                <input type="email" class="form-control w-auto shadow" placeholder="Enter your email" required style="min-width: 250px;">
+                <button type="submit" class="btn btn-light fw-bold shadow">Subscribe</button>
+            </form>
+        </div>
+    </div>
+</section>
 {% endblock content %}
+
+{% block extra_head %}
+<style>
+.hover-lift {
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.hover-lift:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2) !important;
+}
+.category-card .overlay {
+    background: linear-gradient(135deg, rgba(0,0,0,0.6), rgba(0,0,0,0.3));
+    border-radius: 0.375rem;
+}
+.magazine-glow {
+    box-shadow: 0 0 30px rgba(0,123,255,0.3);
+    transition: box-shadow 0.3s ease;
+}
+.magazine-glow:hover {
+    box-shadow: 0 0 50px rgba(0,123,255,0.5);
+}
+.text-shadow {
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+}
+.testimonial-card {
+    transition: transform 0.3s ease;
+}
+.testimonial-card:hover {
+    transform: translateY(-5px);
+}
+.carousel-item img {
+    filter: brightness(0.7);
+}
+.carousel-caption {
+    bottom: 3rem;
+}
+.bg-gradient-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+.bg-gradient-secondary {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+</style>
+{% endblock extra_head %}
