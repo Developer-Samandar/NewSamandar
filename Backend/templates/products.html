@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+
+{% block title %}Collections - Premium Magazine{% endblock title %}
+
+{% block content %}
+<div class="container py-4">
+  <!-- Header Section -->
+  <div class="mb-5">
+    <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-3">
+      <div>
+        <h1 class="display-6 fw-bold mb-2">Curated Collections</h1>
+        <p class="text-muted">Explore our premium product collections</p>
+      </div>
+      <a href="{% url 'create_product' %}" class="btn btn-lg fw-bold shadow" style="background: linear-gradient(135deg, #d97706, #f59e0b); color: white;">
+          <i class="bi bi-plus-circle me-2"></i> Add Collection
+      </a>
+    </div>
+
+    <!-- Search Bar -->
+    <form class="d-flex gap-2 mb-4" method="get" action="" role="search">
+      <div class="input-group input-group-lg shadow-sm">
+        <span class="input-group-text border-0" style="background: white;">
+          <i class="bi bi-search"></i>
+        </span>
+        <input name="q" class="form-control border-0" type="search" placeholder="Search collections..." aria-label="Search" value="{{ query }}" style="padding: 0.75rem 1rem;">
+      </div>
+      <button class="btn btn-lg fw-bold" style="background: linear-gradient(135deg, #0d9488, #059669); color: white;" type="submit">
+        <i class="bi bi-search me-2"></i>Search
+      </button>
+    </form>
+  </div>
+
+  <!-- Products Grid -->
+  {% if products %}
+  <div class="row g-4 mb-5">
+    {% for product in products %}
+    <div class="col-md-6 col-lg-4">
+      <div class="card h-100 border-0 shadow-md hover-card">
+        <div class="card-header" style="background: linear-gradient(135deg, #0f172a, #1e3a8a); border: none;">
+          <div class="d-flex justify-content-between align-items-start">
+            <div>
+              <h6 class="text-muted text-uppercase small mb-0" style="color: rgba(255,255,255,0.7) !important;">Collection</h6>
+              <h5 class="card-title text-white mt-1 mb-0" style="min-height: auto;">{{ product.name|truncatechars:40 }}</h5>
+            </div>
+            <span class="badge" style="background: linear-gradient(135deg, #d97706, #f59e0b);">Featured</span>
+          </div>
+        </div>
+        <div class="card-body d-flex flex-column">
+          <p class="card-text text-muted small mb-3" style="line-height: 1.6;">{{ product.description|truncatechars:100 }}</p>
+          <div class="mb-3">
+            <p class="h5 fw-bold mb-0" style="background: linear-gradient(135deg, #d97706, #f59e0b); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+              ${{ product.price }}
+            </p>
+          </div>
+          <div class="mt-auto">
+            <small class="text-muted d-block mb-3">
+              <i class="bi bi-calendar-event me-1"></i>{{ product.created_at|date:"M d, Y" }}
+            </small>
+            <div class="d-grid gap-2">
+              <a href="{% url 'product_detail' product.pk %}" class="btn btn-outline-primary btn-sm fw-bold">
+                <i class="bi bi-eye me-1"></i>View Details
+              </a>
+              <div class="d-flex gap-2">
+                <a href="{% url 'edit_product' product.pk %}" class="btn btn-outline-warning btn-sm flex-grow-1" title="Edit">
+                  <i class="bi bi-pencil"></i>
+                </a>
+                <a href="{% url 'delete_product' product.pk %}" class="btn btn-outline-danger btn-sm flex-grow-1" title="Delete">
+                  <i class="bi bi-trash"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  {% else %}
+  <div class="card border-0 shadow-lg p-5 text-center">
+    <i class="bi bi-inbox display-1 text-muted mb-3"></i>
+    <h4 class="text-muted mb-3">No Collections Yet</h4>
+    <p class="text-muted mb-4">Start creating and sharing collections with our community.</p>
+    <a href="{% url 'create_product' %}" class="btn btn-lg fw-bold" style="background: linear-gradient(135deg, #d97706, #f59e0b); color: white;">
+      <i class="bi bi-plus-circle me-2"></i>Create Your First Collection
+    </a>
+  </div>
+  {% endif %}
+</div>
+
+{% block extra_head %}
+<style>
+.hover-card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.hover-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15) !important;
+}
+.input-group-lg .form-control {
+  font-size: 1rem;
+}
+</style>
+{% endblock extra_head %}
+{% endblock content %}

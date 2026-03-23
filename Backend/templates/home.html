@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}Home - Online Shop{% endblock title %}
+{% block title %}Premium Magazine - Discover Exclusive Content{% endblock title %}
 
 {% block hero %}
 <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
@@ -41,9 +41,9 @@
         <span class="visually-hidden">Next</span>
     </button>
 </div>
-<div class="text-center mt-4">
-    <a href="{% url 'posts' %}" class="btn btn-light btn-lg shadow-lg">
-        <i class="bi bi-shop me-2"></i>Explore Our Magazine
+<div class="text-center mt-5">
+    <a href="{% url 'posts' %}" class="btn btn-lg fw-bold shadow-lg" style="background: linear-gradient(135deg, #d97706, #f59e0b); color: white; border: none;">
+        <i class="bi bi-newspaper me-2"></i>Explore Our Articles
     </a>
 </div>
 {% endblock hero %}
@@ -53,52 +53,19 @@
 <section class="mb-5">
     <div class="row align-items-center">
         <div class="col-lg-6">
-            <h2 class="display-6 fw-bold text-primary mb-3">Discover Amazing Products</h2>
-            <p class="lead text-muted mb-4">{{ text }}</p>
+            <h2 class="display-6 fw-bold mb-3">Welcome to Premium Magazine</h2>
+            <p class="lead mb-4" style="color: #4b5563;">Experience curated articles, exclusive content, and trending stories from around the world. Discover insights that matter to you.</p>
             <div class="d-flex gap-3">
-                <a href="#categories" class="btn btn-outline-primary">Explore Categories</a>
-                <a href="{% url 'create_posts' %}" class="btn btn-primary">Create Post</a>
+                <a href="{% url 'posts' %}" class="btn btn-lg fw-bold" style="background: linear-gradient(135deg, #0d9488, #059669); color: white;">
+                    <i class="bi bi-book-fill me-2"></i>Read Articles
+                </a>
+                <a href="{% url 'products' %}" class="btn btn-lg fw-bold" style="background: linear-gradient(135deg, #d97706, #f59e0b); color: white;">
+                    <i class="bi bi-star-fill me-2"></i>Collections
+                </a>
             </div>
         </div>
         <div class="col-lg-6 text-center">
-            <img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Online Magazine" class="img-fluid rounded shadow-lg magazine-glow">
-        </div>
-    </div>
-</section>
-
-<!-- Categories Section -->
-<section id="categories" class="mb-5">
-    <h3 class="text-center mb-4 fw-bold">Shop by Category</h3>
-    <div class="row g-4">
-        <div class="col-md-4">
-            <div class="card h-100 border-0 shadow-lg hover-lift category-card" style="background-image: url('https://images.unsplash.com/photo-1498049794561-7780e7231661?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'); background-size: cover; background-position: center;">
-                <div class="card-body text-center p-4 text-white overlay">
-                    <i class="bi bi-laptop fs-1 mb-3"></i>
-                    <h5 class="card-title fw-bold">Electronics</h5>
-                    <p class="card-text">Latest gadgets and tech accessories</p>
-                    <a href="#" class="btn btn-outline-light">Browse</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card h-100 border-0 shadow-lg hover-lift category-card" style="background-image: url('https://images.unsplash.com/photo-1445205170230-053b83016050?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'); background-size: cover; background-position: center;">
-                <div class="card-body text-center p-4 text-white overlay">
-                    <i class="bi bi-bag fs-1 mb-3"></i>
-                    <h5 class="card-title fw-bold">Fashion</h5>
-                    <p class="card-text">Trendy clothing and accessories</p>
-                    <a href="#" class="btn btn-outline-light">Browse</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card h-100 border-0 shadow-lg hover-lift category-card" style="background-image: url('https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'); background-size: cover; background-position: center;">
-                <div class="card-body text-center p-4 text-white overlay">
-                    <i class="bi bi-house-heart fs-1 mb-3"></i>
-                    <h5 class="card-title fw-bold">Home & Garden</h5>
-                    <p class="card-text">Everything for your home</p>
-                    <a href="#" class="btn btn-outline-light">Browse</a>
-                </div>
-            </div>
+            <img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Premium Magazine" class="img-fluid rounded shadow-lg magazine-glow">
         </div>
     </div>
 </section>

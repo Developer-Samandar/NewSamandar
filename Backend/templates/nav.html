@@ -203,7 +203,7 @@
         </a>
 
         <!-- Toggler -->
-        <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#categoriesOffcanvas" aria-controls="categoriesOffcanvas" aria-label="Toggle categories menu">
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-label="Toggle navigation menu">
             <i class="bi bi-list-nested fs-3" aria-hidden="true"></i>
         </button>
 
@@ -214,10 +214,10 @@
                     <a class="nav-link" href="{% url 'home' %}">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#" data-bs-toggle="offcanvas" data-bs-target="#categoriesOffcanvas" aria-label="Open categories">Categories</a>
+                    <a class="nav-link" href="{% url 'posts' %}">Posts</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'posts' %}">Posts</a>
+                    <a class="nav-link" href="{% url 'products' %}">Products</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'about' %}">About</a>
@@ -243,41 +243,8 @@
                 <a href="#" class="btn btn-primary-custom btn-custom px-4" aria-label="Create new account">Sign Up</a>
             </div>
         </div>
-    </div>
-</nav>
-
-<!-- Offcanvas for Categories -->
-<div class="offcanvas offcanvas-start" tabindex="-1" id="categoriesOffcanvas" aria-labelledby="categoriesLabel">
-    <div class="offcanvas-header">
-        <h5 class="offcanvas-title fw-bold" id="categoriesLabel">
-            <i class="bi bi-tags me-2" aria-hidden="true"></i>Explore Categories
-        </h5>
-        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close categories menu"></button>
-    </div>
-    <div class="offcanvas-body">
-        <div class="list-group">
-            <a href="#" class="list-group-item list-group-item-action py-3" aria-label="Browse electronics">
-                <i class="bi bi-cpu me-3 fs-5" aria-hidden="true"></i>Electronics
-            </a>
-            <a href="#" class="list-group-item list-group-item-action py-3" aria-label="Browse clothing and fashion">
-                <i class="bi bi-scissors me-3 fs-5" aria-hidden="true"></i>Clothing & Fashion
-            </a>
-            <a href="#" class="list-group-item list-group-item-action py-3" aria-label="Browse home and garden">
-                <i class="bi bi-house-heart me-3 fs-5" aria-hidden="true"></i>Home & Garden
-            </a>
-            <a href="#" class="list-group-item list-group-item-action py-3" aria-label="Browse health and beauty">
-                <i class="bi bi-heart-pulse me-3 fs-5" aria-hidden="true"></i>Health & Beauty
-            </a>
-            <a href="#" class="list-group-item list-group-item-action py-3" aria-label="Browse sports and outdoors">
-                <i class="bi bi-controller me-3 fs-5" aria-hidden="true"></i>Sports & Outdoors
-            </a>
-            <div class="dropdown-divider my-3"></div>
-            <a href="#" class="list-group-item list-group-item-action py-3 fw-bold" aria-label="View all categories">
-                <i class="bi bi-grid me-3" aria-hidden="true"></i>View All Categories
-            </a>
-        </div>
-    </div>
 </div>
+</nav>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script>

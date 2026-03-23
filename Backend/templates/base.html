@@ -19,10 +19,10 @@
     {% include 'nav.html' %}
 
     <!-- Hero / Banner placeholder -->
-    <header class="bg-primary text-white py-5 mb-4">
+    <header class="text-white py-5 mb-5">
         <div class="container text-center">
-            <h1 class="display-5 fw-bold">Welcome to the Online Shop</h1>
-            <p class="lead">Browse our collection and enjoy a seamless shopping experience.</p>
+            <h1 class="display-4 fw-bold mb-3">Welcome to Premium Magazine</h1>
+            <p class="lead fs-5 mb-4" style="opacity: 0.95;">Discover curated collections and premium articles.</p>
             {% block hero %}{% endblock hero %}
         </div>
     </header>
@@ -32,39 +32,40 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-light text-center text-lg-start mt-auto border-top">
-        <div class="container p-4">
+    <footer class="text-center text-lg-start mt-auto border-top">
+        <div class="container p-5">
             <div class="row">
                 <div class="col-lg-3 col-md-6 mb-4">
-                    <h5 class="text-uppercase fw-bold">About</h5>
-                    <p>A modern online store built with Django, focusing on excellent UI/UX and responsive design.</p>
+                    <h5 class="text-uppercase fw-bold">About Premium</h5>
+                    <p>Your ultimate destination for premium articles, exclusive content, and curated collections.</p>
                 </div>
                 <div class="col-lg-3 col-md-6 mb-4">
                     <h5 class="text-uppercase fw-bold">Quick Links</h5>
                     <ul class="list-unstyled mb-0">
-                        <li><a href="#" class="text-dark text-decoration-none">Home</a></li>
-                        <li><a href="#" class="text-dark text-decoration-none">Shop</a></li>
-                        <li><a href="#" class="text-dark text-decoration-none">Contact</a></li>
+                        <li><a href="/" class="text-decoration-none">Home</a></li>
+                        <li><a href="{% url 'posts' %}" class="text-decoration-none">Articles</a></li>
+                        <li><a href="{% url 'products' %}" class="text-decoration-none">Collections</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-3 col-md-6 mb-4">
                     <h5 class="text-uppercase fw-bold">Support</h5>
                     <ul class="list-unstyled mb-0">
-                        <li><a href="#" class="text-dark text-decoration-none">Help Center</a></li>
-                        <li><a href="#" class="text-dark text-decoration-none">Shipping</a></li>
-                        <li><a href="#" class="text-dark text-decoration-none">Returns</a></li>
+                        <li><a href="#" class="text-decoration-none">Help Center</a></li>
+                        <li><a href="#" class="text-decoration-none">Shipping Info</a></li>
+                        <li><a href="#" class="text-decoration-none">Returns</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-3 col-md-6 mb-4">
                     <h5 class="text-uppercase fw-bold">Follow Us</h5>
-                    <a href="#" class="text-dark me-3"><i class="bi bi-facebook fs-4"></i></a>
-                    <a href="#" class="text-dark me-3"><i class="bi bi-twitter fs-4"></i></a>
-                    <a href="#" class="text-dark"><i class="bi bi-instagram fs-4"></i></a>
+                    <a href="#" class="me-3" title="Facebook"><i class="bi bi-facebook fs-5"></i></a>
+                    <a href="#" class="me-3" title="Twitter"><i class="bi bi-twitter fs-5"></i></a>
+                    <a href="#" class="me-3" title="Instagram"><i class="bi bi-instagram fs-5"></i></a>
+                    <a href="#" title="LinkedIn"><i class="bi bi-linkedin fs-5"></i></a>
                 </div>
             </div>
         </div>
-        <div class="text-center p-3 bg-secondary text-white">
-            © {% now "Y" %} Online Shop. All rights reserved.
+        <div class="text-center p-4 bg-secondary text-white">
+            © {% now "Y" %} Premium Magazine. All rights reserved.
         </div>
     </footer>
 

@@ -29,4 +29,9 @@ urlpatterns = [
     path('post/<int:pk>/', views.post_detail, name='post_detail'),
     path('post/<int:pk>/edit/', views.edit_post, name='edit_post'),
     path('post/<int:pk>/delete/', views.delete_post, name='delete_post'),
+    path('products/', views.products, name='products' ),
+    path('create-product/', views.create_product, name='create_product'),
+    path('product/<int:pk>/', views.product_detail, name='product_detail'),
+    path('product/<int:pk>/edit/', views.edit_product, name='edit_product'),
+    path('product/<int:pk>/delete/', views.delete_product, name='delete_product'),
 ]

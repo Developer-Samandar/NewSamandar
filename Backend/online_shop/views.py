@@ -1,6 +1,6 @@
 ﻿from django.shortcuts import render, redirect, get_object_or_404
-from .forms import PostForm
-from .models import Post
+from .forms import PostForm, ProductForm
+from .models import Post, Product
 
 # Create your views here.
 def home(request):
@@ -54,7 +54,7 @@ def update_posts(request, pk: int):
     context = {
         "form": form
     }
-    return render(request, "update_posts.html", context)
+    return render(request, "update_post.html", context)
 
 def post_detail(request, pk):
     post = get_object_or_404(Post, pk=pk)
@@ -79,3 +79,50 @@ def delete_post(request, pk):
         post.delete()
         return redirect("posts")
     return render(request, "delete_post.html", {"post": post})
+
+def products(request):
+    q = request.GET.get('q', '')
+    if q:
+        products = Product.objects.filter(name__icontains=q)
+    else:
+        products = Product.objects.all()
+    context = {
+        "products": products,
+        "query": q,
+    }
+    return render(request, "products.html", context)
+
+def create_product(request):
+    if request.method == "POST":
+        form = ProductForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("products")
+    else:
+        form = ProductForm()
+    context = {
+        "form": form
+    }
+    return render(request, "create_product.html", context)
+
+def product_detail(request, pk):
+    product = get_object_or_404(Product, pk=pk)
+    return render(request, "product_detail.html", {"product": product})
+
+def edit_product(request, pk):
+    product = get_object_or_404(Product, pk=pk)
+    if request.method == "POST":
+        form = ProductForm(request.POST, instance=product)
+        if form.is_valid():
+            form.save()
+            return redirect("product_detail", pk=product.pk)
+    else:
+        form = ProductForm(instance=product)
+    return render(request, "edit_product.html", {"form": form, "product": product})
+
+def delete_product(request, pk):
+    product = get_object_or_404(Product, pk=pk)
+    if request.method == "POST":
+        product.delete()
+        return redirect("products")
+    return render(request, "delete_product.html", {"product": product})

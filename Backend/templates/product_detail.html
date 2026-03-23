@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %}{{ product.name }}{% endblock title %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card shadow-lg border-0 rounded-3">
+                <div class="card-header bg-success text-white rounded-top-3">
+                    <h1 class="h3 mb-0">{{ product.name }}</h1>
+                </div>
+                <div class="card-body p-4">
+                    <p class="lead">{{ product.description }}</p>
+                    <p class="text-primary fw-bold fs-4">${{ product.price }}</p>
+                    <small class="text-muted">Created: {{ product.created_at|date:"M d, Y H:i" }}{% if product.updated_at != product.created_at %} | Updated: {{ product.updated_at|date:"M d, Y H:i" }}{% endif %}</small>
+                </div>
+                <div class="card-footer bg-light rounded-bottom-3">
+                    <div class="d-flex justify-content-between">
+                        <a href="{% url 'products' %}" class="btn btn-outline-secondary">
+                            <i class="bi bi-arrow-left"></i> Back to Products
+                        </a>
+                        <div>
+                            <a href="{% url 'edit_product' product.pk %}" class="btn btn-warning me-2">
+                                <i class="bi bi-pencil"></i> Edit
+                            </a>
+                            <a href="{% url 'delete_product' product.pk %}" class="btn btn-danger">
+                                <i class="bi bi-trash"></i> Delete
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
