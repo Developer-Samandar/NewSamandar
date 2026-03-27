@@ -15,11 +15,22 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
-from online_shop import views
+from django.urls import path, include
+from online_shop import views, api_view
+from rest_framework import routers
+
+router = routers.DefaultRouter()
+router.register(r'users', api_view.UserViewSet)
+router.register(r'groups', api_view.GroupViewSet)
+router.register(r'posts', api_view.PostViewSet)
+router.register(r'products', api_view.ProductViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+
+    path("api/", include(router.urls)),
+    path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    
     path('', views.home),
     path('home/', views.home, name='home'),
     path('about/', views.about, name='about'),
@@ -35,3 +46,6 @@ urlpatterns = [
     path('product/<int:pk>/edit/', views.edit_product, name='edit_product'),
     path('product/<int:pk>/delete/', views.delete_product, name='delete_product'),
 ]
+
+# cd Backend
+# ..\venv\Scripts\python.exe manage.py runserver

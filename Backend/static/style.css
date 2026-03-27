@@ -699,6 +699,99 @@ html {
 
 /* ============================================
    ACCESSIBILITY & BEST PRACTICES
+   NAVBAR ADDITIONS FROM NAV.HTML
+   ============================================ */
+
+.search-bar {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    color: #fff;
+}
+
+.search-bar::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.search-bar:focus {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.25);
+    color: #fff;
+}
+
+.btn-custom {
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: none;
+}
+
+.btn-outline-light {
+    border-color: rgba(255, 255, 255, 0.3);
+    color: #fff;
+}
+
+.btn-outline-light:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: #fff;
+    color: #fff;
+}
+
+.btn-primary-custom {
+    background: linear-gradient(45deg, #3182ce, #63b3ed);
+    color: #fff;
+}
+
+.btn-primary-custom:hover {
+    background: linear-gradient(45deg, #63b3ed, #3182ce);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(49, 130, 206, 0.3);
+}
+
+.dark-mode-toggle {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dark-mode-toggle:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+}
+
+/* Dark mode styles */
+body.dark-mode {
+    background-color: #2d3748;
+    color: #fff;
+}
+
+body.dark-mode .navbar {
+    background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+}
+
+@media (max-width: 991.98px) {
+    .navbar-collapse {
+        background: rgba(0, 0, 0, 0.05);
+        border-radius: 12px;
+        margin-top: 1rem;
+        padding: 1rem;
+        backdrop-filter: blur(10px);
+    }
+}
+
+/* ============================================
+   ACCESSIBILITY & BEST PRACTICES
    ============================================ */
 
 /* Focus visible for keyboard navigation */
